@@ -1,1 +1,1171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Adinath Jagtap — Founder of कमाल धाग्यांची (handmade crochet & wool products). Web developer & data analyst. View products, portfolio and contact.">
+    <title>Adinath Jagtap — Founder, कमाल धाग्यांची | Web Developer & Data Analyst</title>
+    <link rel="icon" href="./assets/favicon.ico">
+    <style>
+        /* Reset & Base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        :root {
+            --primary: #3730a3;
+            --secondary: #c2410c;
+            --bg: #fafafa;
+            --text: #1f2937;
+            --text-light: #6b7280;
+            --border: #e5e7eb;
+            --white: #ffffff;
+            --shadow: rgba(0, 0, 0, 0.1);
+        }
+
+        [data-theme="dark"] {
+            --primary: #818cf8;
+            --secondary: #fb923c;
+            --bg: #111827;
+            --text: #f3f4f6;
+            --text-light: #9ca3af;
+            --border: #374151;
+            --white: #1f2937;
+            --shadow: rgba(0, 0, 0, 0.3);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--bg);
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        h1 { font-size: clamp(2rem, 5vw, 3.5rem); }
+        h2 { font-size: clamp(1.75rem, 4vw, 2.5rem); }
+        h3 { font-size: clamp(1.25rem, 3vw, 1.75rem); }
+
+        p { margin-bottom: 1rem; }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Header */
+        header {
+            background: var(--white);
+            box-shadow: 0 2px 8px var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: background 0.3s ease;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .logo-sub {
+            display: block;
+            font-size: 0.75rem;
+            color: var(--text-light);
+            font-weight: 400;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        nav a:hover, nav a:focus {
+            color: var(--primary);
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.25rem;
+            padding: 0.5rem;
+            color: var(--text);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--text);
+            padding: 0.5rem;
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, #1e40af 100%);
+            color: white;
+            padding: 6rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-subheadline {
+            font-size: clamp(1rem, 2.5vw, 1.5rem);
+            margin-bottom: 1.5rem;
+            opacity: 0.95;
+        }
+
+        .hero-desc {
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.875rem 2rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+            border: 2px solid transparent;
+            min-height: 44px;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: white;
+            color: var(--primary);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px var(--shadow);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border-color: white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: var(--primary);
+        }
+
+        /* Section */
+        section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--primary);
+        }
+
+        /* About / Founder Story */
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-image {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+
+        .about-content blockquote {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            padding-left: 1rem;
+            border-left: 4px solid var(--primary);
+        }
+
+        .badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1.5rem;
+        }
+
+        .badge {
+            background: var(--primary);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        /* Products */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: var(--white);
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 4px 12px var(--shadow);
+            transition: transform 0.2s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, #fbbf24, var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+        }
+
+        .product-content {
+            padding: 1.5rem;
+        }
+
+        .product-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-desc {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .product-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tag {
+            background: var(--bg);
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        /* Portfolio Gallery */
+        .gallery-filters {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-chip {
+            padding: 0.5rem 1.25rem;
+            border: 2px solid var(--border);
+            border-radius: 2rem;
+            background: var(--white);
+            cursor: pointer;
+            transition: all 0.2s;
+            font-weight: 500;
+        }
+
+        .filter-chip.active, .filter-chip:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            height: 300px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 0.5rem;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.02);
+        }
+
+        .gallery-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+
+        /* Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .project-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 1rem;
+            border: 2px solid var(--border);
+            transition: border-color 0.2s;
+        }
+
+        .project-card:hover {
+            border-color: var(--primary);
+        }
+
+        .project-card h3 {
+            color: var(--primary);
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin: 2rem 0;
+        }
+
+        .skill-tag {
+            background: var(--primary);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--white);
+            border: 2px solid var(--border);
+            border-radius: 0.5rem;
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .social-link:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        /* Timeline */
+        .timeline {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline-item {
+            padding: 1.5rem;
+            background: var(--white);
+            border-left: 4px solid var(--primary);
+            margin-bottom: 1.5rem;
+            border-radius: 0.5rem;
+        }
+
+        .timeline-date {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-title {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        /* Contact */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: start;
+            gap: 1rem;
+        }
+
+        .contact-icon {
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        input, textarea {
+            padding: 0.875rem;
+            border: 2px solid var(--border);
+            border-radius: 0.5rem;
+            background: var(--bg);
+            color: var(--text);
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.2s;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--white);
+            padding: 2rem 0;
+            text-align: center;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-socials {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-social-link {
+            color: var(--text);
+            font-size: 1.5rem;
+            transition: color 0.2s;
+        }
+
+        .footer-social-link:hover {
+            color: var(--primary);
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            position: relative;
+            max-width: 900px;
+            max-height: 90vh;
+            background: var(--white);
+            border-radius: 1rem;
+            padding: 2rem;
+            overflow-y: auto;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            color: var(--text);
+            width: 44px;
+            height: 44px;
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--white);
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: 0 4px 12px var(--shadow);
+                gap: 1rem;
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero {
+                padding: 4rem 0;
+            }
+
+            section {
+                padding: 3rem 0;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .about-grid, .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid, .products-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Accessibility */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+
+        :focus-visible {
+            outline: 3px solid var(--primary);
+            outline-offset: 2px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header role="banner">
+        <div class="header-content">
+            <a href="#home" class="logo">
+                Adinath Jagtap
+                <span class="logo-sub">Founder — कमाल धाग्यांची</span>
+            </a>
+            <nav role="navigation" aria-label="Main navigation">
+                <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
+                    ☰
+                </button>
+                <ul id="navMenu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="./assets/Resume_Adinath_Jagtap.pdf" target="_blank">Resume</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li>
+                        <button class="theme-toggle" aria-label="Toggle dark mode" title="Toggle theme">
+                            🌙
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section id="home" class="hero">
+        <div class="container">
+            <h1>Adinath Somnath Jagtap</h1>
+            <p class="hero-subheadline">Founder — कमाल धाग्यांची | Web Developer · Data Analyst · Maker</p>
+            <p class="hero-desc">
+                Founder of कमाल धाग्यांची — hand-crafted crochet and wool products. Web developer & data analyst with community leadership experience (Co-Founder @ Syntax Syndicate). Based in Navi Mumbai.
+            </p>
+            <div class="cta-buttons">
+                <a href="#products" class="btn btn-primary">View Products</a>
+                <a href="./assets/Resume_Adinath_Jagtap.pdf" class="btn btn-secondary" download>Download Resume</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About / Founder Story -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">Founder — कमाल धाग्यांची</h2>
+            <div class="about-grid">
+                <div class="about-image" aria-label="Founder workspace">
+                    🧶
+                </div>
+                <div class="about-content">
+                    <blockquote>
+                        <strong>Adinath Somnath Jagtap</strong> — Web Developer & Data Analyst and the founder of <strong>कमाल धाग्यांची</strong>, a handmade crochet & woolen products brand. I combine digital skills with craft to build sustainable, beautiful wool products and grow an artisan-first brand. I also co-founded <strong>Syntax Syndicate</strong>, a tech community focused on skill growth and projects. (Navi Mumbai)
+                    </blockquote>
+                    <div class="badges">
+                        <span class="badge">Co-Founder @ Syntax Syndicate</span>
+                        <span class="badge">College Ambassador @ Techfest IIT Bombay</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products -->
+    <section id="products">
+        <div class="container">
+            <h2 class="section-title">Products — Crochet & Wool</h2>
+            <div class="products-grid">
+                <article class="product-card">
+                    <div class="product-image">🧣</div>
+                    <div class="product-content">
+                        <h3 class="product-title">Handmade Wool Scarf</h3>
+                        <p class="product-desc">Cozy, warm scarves crafted with premium wool in vibrant colors.</p>
+                        <div class="product-tags">
+                            <span class="tag">Scarf</span>
+                            <span class="tag">Winter Wear</span>
+                        </div>
+                        <a href="mailto:adinathjagtap9702@gmail.com?subject=Enquiry: Handmade Wool Scarf" class="btn btn-primary">Enquire</a>
+                    </div>
+                </article>
+
+                <article class="product-card">
+                    <div class="product-image">🐻</div>
+                    <div class="product-content">
+                        <h3 class="product-title">Crochet Amigurumi</h3>
+                        <p class="product-desc">Adorable stuffed animals and characters, perfect gifts for all ages.</p>
+                        <div class="product-tags">
+                            <span class="tag">Amigurumi</span>
+                            <span class="tag">Gifts</span>
+                        </div>
+                        <a href="mailto:adinathjagtap9702@gmail.com?subject=Enquiry: Crochet Amigurumi" class="btn btn-primary">Enquire</a>
+                    </div>
+                </article>
+
+                <article class="product-card">
+                    <div class="product-image">🏠</div>
+                    <div class="product-content">
+                        <h3 class="product-title">Home Decor</h3>
+                        <p class="product-desc">Beautiful crochet pieces including coasters, wall hangings, and cushion covers.</p>
+                        <div class="product-tags">
+                            <span class="tag">Home Decor</span>
+                            <span class="tag">Handmade</span>
+                        </div>
+                        <a href="mailto:adinathjagtap9702@gmail.com?subject=Enquiry: Home Decor" class="btn btn-primary">Enquire</a>
+                    </div>
+                </article>
+
+                <article class="product-card">
+                    <div class="product-image">🎒</div>
+                    <div class="product-content">
+                        <h3 class="product-title">Crochet Bags</h3>
+                        <p class="product-desc">Stylish and durable handmade bags for everyday use or special occasions.</p>
+                        <div class="product-tags">
+                            <span class="tag">Bags</span>
+                            <span class="tag">Accessories</span>
+                        </div>
+                        <a href="mailto:adinathjagtap9702@gmail.com?subject=Enquiry: Crochet Bags" class="btn btn-primary">Enquire</a>
+                    </div>
+                </article>
+
+                <article class="product-card">
+                    <div class="product-image">🧤</div>
+                    <div class="product-content">
+                        <h3 class="product-title">Winter Accessories</h3>
+                        <p class="product-desc">Mittens, gloves, and beanies to keep you warm in style.</p>
+                        <div class="product-tags">
+                            <span class="tag">Winter Wear</span>
+                            <span class="tag">Accessories</span>
+                        </div>
+                        <a href="mailto:adinathjagtap9702@gmail.com?subject=Enquiry: Winter Accessories" class="btn btn-primary">Enquire</a>
+                    </div>
+                </article>
+
+                <article class="product-card">
+                    <div class="product-image">🎁</div>
+                    <div class="product-content">
+                        <h3 class="product-title">Custom Orders</h3>
+                        <p class="product-desc">Personalized crochet creations tailored to your specifications and preferences.</p>
+                        <div class="product-tags">
+                            <span class="tag">Custom</span>
+                            <span class="tag">Made to Order</span>
+                        </div>
+                        <a href="mailto:adinathjagtap9702@gmail.com?subject=Enquiry: Custom Orders" class="btn btn-primary">Enquire</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Gallery -->
+    <section id="portfolio">
+        <div class="container">
+            <h2 class="section-title">Portfolio</h2>
+            <div class="gallery-filters">
+                <button class="filter-chip active" data-filter="all">All</button>
+                <button class="filter-chip" data-filter="crochet">Crochet</button>
+                <button class="filter-chip" data-filter="wool">Wool</button>
+                <button class="filter-chip" data-filter="custom">Custom Orders</button>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item" data-category="crochet" tabindex="0" role="button" aria-label="View crochet scarf">
+                    <div class="gallery-placeholder">🧣</div>
+                </div>
+                <div class="gallery-item" data-category="crochet" tabindex="0" role="button" aria-label="View amigurumi bear">
+                    <div class="gallery-placeholder">🐻</div>
+                </div>
+                <div class="gallery-item" data-category="wool" tabindex="0" role="button" aria-label="View wool blanket">
+                    <div class="gallery-placeholder">🛋️</div>
+                </div>
+                <div class="gallery-item" data-category="crochet" tabindex="0" role="button" aria-label="View home decor">
+                    <div class="gallery-placeholder">🏠</div>
+                </div>
+                <div class="gallery-item" data-category="custom" tabindex="0" role="button" aria-label="View custom bag">
+                    <div class="gallery-placeholder">🎒</div>
+                </div>
+                <div class="gallery-item" data-category="wool" tabindex="0" role="button" aria-label="View winter accessories">
+                    <div class="gallery-placeholder">🧤</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects & Tech -->
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">Projects & Tech</h2>
+            <div class="projects-grid">
+                <article class="project-card">
+                    <h3>Vehicle Parking Management</h3>
+                    <p><strong>IIT-M Project</strong></p>
+                    <p>Multi-user parking management app (administrator and users) that manages different parking lots, parking spots and parked vehicles. Built for 4-wheeler parking management.</p>
+                </article>
+
+                <article class="project-card">
+                    <h3>Boston House Price Predictor</h3>
+                    <p>Machine learning web application for predicting house prices in the Boston region. Model trained on Kaggle dataset with interactive web interface built using Flask.</p>
+                    <a href="#" class="social-link" target="_blank" rel="noopener noreferrer">
+                    <span>🎓</span> IITM Profile
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience & Education -->
+    <section id="experience">
+        <div class="container">
+            <h2 class="section-title">Experience & Education</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">August 2025 - Present</div>
+                    <div class="timeline-title">Co-Founder, Syntax Syndicate</div>
+                    <p>Co-Founded and built a growing tech community for tech enthusiasts, focusing on upgrading peers and keeping them up-to-date.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">May 2025 - Present</div>
+                    <div class="timeline-title">College Ambassador, Techfest IIT Bombay</div>
+                    <p>Promoting and helping the techfest community by doing tasks like research, making web pages designing and more.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">2024 - Present</div>
+                    <div class="timeline-title">Social Media Member, Avalon TEC</div>
+                    <p>Plan and execute social media posts to promote hackathons and technical events; coordinate with organizers to amplify outreach and boost registrations.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">2024 - Present</div>
+                    <div class="timeline-title">Member, Revive TEC</div>
+                    <p>Support promotion and volunteer coordination for concerts, sports and cultural events; help ensure smooth logistics and participant experience.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">May 2024 - Sep 2028</div>
+                    <div class="timeline-title">Indian Institute of Technology, Madras</div>
+                    <p>B.S. in Data Science & Applications (Diploma Level)</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">Sep 2024 - May 2028</div>
+                    <div class="timeline-title">Terna Engineering College, Nerul</div>
+                    <p>B.E. in AI & Data Science</p>
+                </div>
+            </div>
+
+            <h3 style="text-align: center; margin: 3rem 0 1.5rem;">Certifications</h3>
+            <div class="badges" style="justify-content: center;">
+                <span class="badge">Foundational Programming & Data Science — IIT Madras</span>
+                <span class="badge">Data Analysis Job Simulation — Deloitte Australia</span>
+                <span class="badge">Data Visualization Job Simulation — TATA</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Work with me / Enquiries</h2>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span class="contact-icon">📍</span>
+                        <div>
+                            <strong>Location</strong>
+                            <p>Navi Mumbai, India - 400218</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">📞</span>
+                        <div>
+                            <strong>Phone</strong>
+                            <p><a href="tel:+917977270870">+91 7977270870</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">📧</span>
+                        <div>
+                            <strong>Email</strong>
+                            <p><a href="mailto:adinathjagtap9702@gmail.com">adinathjagtap9702@gmail.com</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Name *</label>
+                        <input type="text" id="name" name="name" required aria-required="true">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required aria-required="true">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="message" required aria-required="true"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer role="contentinfo">
+        <div class="container">
+            <div class="footer-socials">
+                <a href="https://github.com/24f2004698" class="footer-social-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                    📦
+                </a>
+                <a href="https://www.linkedin.com/in/adinath-jagtap-441313332/" class="footer-social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                    💼
+                </a>
+                <a href="mailto:adinathjagtap9702@gmail.com" class="footer-social-link" aria-label="Email">
+                    📧
+                </a>
+            </div>
+            <p>&copy; <span id="year"></span> Adinath Somnath Jagtap — Founder, कमाल धाग्यांची</p>
+        </div>
+    </footer>
+
+    <!-- Modal -->
+    <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Close modal">&times;</button>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navMenu = document.getElementById('navMenu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            const isActive = navMenu.classList.toggle('active');
+            mobileMenuBtn.setAttribute('aria-expanded', isActive);
+        });
+
+        // Close mobile menu when clicking a link
+        navMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        // Theme toggle
+        const themeToggle = document.querySelector('.theme-toggle');
+        const html = document.documentElement;
+        
+        // Check for saved theme preference
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        html.setAttribute('data-theme', savedTheme);
+        themeToggle.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            themeToggle.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+        });
+
+        // Gallery filters
+        const filterChips = document.querySelectorAll('.filter-chip');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+
+        filterChips.forEach(chip => {
+            chip.addEventListener('click', () => {
+                // Update active state
+                filterChips.forEach(c => c.classList.remove('active'));
+                chip.classList.add('active');
+
+                const filter = chip.getAttribute('data-filter');
+
+                // Filter items
+                galleryItems.forEach(item => {
+                    const category = item.getAttribute('data-category');
+                    if (filter === 'all' || category === filter) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Gallery modal
+        const modal = document.getElementById('modal');
+        const modalBody = document.getElementById('modalBody');
+        const modalClose = document.querySelector('.modal-close');
+
+        galleryItems.forEach(item => {
+            const openModal = () => {
+                const emoji = item.querySelector('.gallery-placeholder').textContent;
+                const category = item.getAttribute('data-category');
+                
+                modalBody.innerHTML = `
+                    <div style="text-align: center;">
+                        <div style="font-size: 8rem; margin-bottom: 1rem;">${emoji}</div>
+                        <h3>Gallery Item</h3>
+                        <p>Category: ${category.charAt(0).toUpperCase() + category.slice(1)}</p>
+                        <p>This is a placeholder for your actual product images. Replace with high-quality photos.</p>
+                    </div>
+                `;
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            };
+
+            item.addEventListener('click', openModal);
+            item.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    openModal();
+                }
+            });
+        });
+
+        const closeModal = () => {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        };
+
+        modalClose.addEventListener('click', closeModal);
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+
+        // ESC key to close modal
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                closeModal();
+            }
+        });
+
+        // Contact form
+        const contactForm = document.getElementById('contactForm');
+        
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            
+            // Basic validation
+            if (!name || !email || !message) {
+                alert('Please fill in all fields');
+                return;
+            }
+            
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert('Please enter a valid email address');
+                return;
+            }
+            
+            // Create mailto link
+            const subject = encodeURIComponent(`Contact from ${name}`);
+            const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
+            window.location.href = `mailto:adinathjagtap9702@gmail.com?subject=${subject}&body=${body}`;
+            
+            // Reset form
+            contactForm.reset();
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href === '#') return;
+                
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Update year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>="btn btn-primary" style="margin-top: 1rem;">View Project</a>
+                </article>
+            </div>
+
+            <h3 style="text-align: center; margin: 3rem 0 1.5rem;">Skills & Technologies</h3>
+            <div class="skills-list" style="justify-content: center;">
+                <span class="skill-tag">HTML</span>
+                <span class="skill-tag">CSS</span>
+                <span class="skill-tag">JavaScript</span>
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">Flask</span>
+                <span class="skill-tag">PostgreSQL</span>
+                <span class="skill-tag">SQLite</span>
+                <span class="skill-tag">PowerBI</span>
+            </div>
+
+            <h3 style="text-align: center; margin: 3rem 0 1.5rem;">Connect & Explore</h3>
+            <div class="social-links" style="justify-content: center;">
+                <a href="https://github.com/24f2004698" class="social-link" target="_blank" rel="noopener noreferrer">
+                    <span>📦</span> GitHub
+                </a>
+                <a href="https://www.linkedin.com/in/adinath-jagtap-441313332/" class="social-link" target="_blank" rel="noopener noreferrer">
+                    <span>💼</span> LinkedIn
+                </a>
+                <a href="#" class
